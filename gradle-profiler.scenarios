@@ -1,0 +1,23 @@
+withClasspathIsolationCold {
+    tasks = ["doSomething1000"]
+    gradle-args = ["-PuseCustomClassloader=false"]
+    daemon = cold
+}
+
+withClasspathIsolation {
+    tasks = ["doSomething1000"]
+    gradle-args = ["-PuseCustomClassloader=false"]
+    warm-ups = 50
+}
+
+withCustomClassloaderCold {
+    tasks = ["doSomething1000"]
+    gradle-args = ["-PuseCustomClassloader=true"]
+    daemon = cold
+}
+
+withCustomClassloader {
+    tasks = ["doSomething1000"]
+    gradle-args = ["-PuseCustomClassloader=true"]
+    warm-ups = 50
+}
